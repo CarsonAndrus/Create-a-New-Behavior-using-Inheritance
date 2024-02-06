@@ -12,9 +12,10 @@ using UnityEngine;
 public class NewEnemy : EnemyHitTarget
 {
     [SerializeField] EnemyHitTarget enemyPrefab;
-    float timeTillCharge = 10;
-    bool canwalk = false;
-    [SerializeField] GameObject charger;
+    [SerializeField] Vector3 rotation;
+    protected float timeTillCharge = 10;
+    protected bool canwalk = false;
+    
 
     IEnumerator ChargeTimer()
     {
@@ -27,21 +28,19 @@ public class NewEnemy : EnemyHitTarget
         if (timeTillCharge == 0f)
         {
             canwalk = true;
-            //charger.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 
-    void Start()
+   protected void Start()
     {
-        //charger.GetComponent<Rigidbody>().isKinematic = true;
         StartCoroutine(ChargeTimer());
     }
     
 
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
-        
+        this.transform.Rotate(rotation * 1 * Time.deltaTime);  
     }
 }
