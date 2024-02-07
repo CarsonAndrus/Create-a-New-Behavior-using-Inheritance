@@ -1,18 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class ControllerData : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] InputActionReference toggleright;
+    [SerializeField] InputActionReference toggleleft;
+    [SerializeField] InputActionReference jumpright;
+    [SerializeField] InputActionReference jumpleft;
+    [SerializeField] float jumpForce = 50f;
+    private Rigidbody rb;
+
+
+    private void Start()
     {
-        
+        jumpleft.action.performed += OnJump;
+        jumpright.action.performed += OnJump;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnJump(InputAction.CallbackContext context)
     {
-        
+        rb.AddForce(Vector3.up*jumpForce);
+    }
+
+
+
+
+
+    private void Awake()
+    {
+        toggleright.action.started += ToggleObject;
+        toggleleft.action.started += ToggleObject;
+        rb = GetComponent<Rigidbody>();
+    }
+
+
+
+    private void ToggleObject(InputAction.CallbackContext context)
+    {
+        bool isActive = !gameObject.activeSelf;
+        gameObject.SetActive(isActive);
     }
 }
