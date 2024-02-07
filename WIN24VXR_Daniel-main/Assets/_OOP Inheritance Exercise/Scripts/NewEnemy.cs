@@ -39,8 +39,9 @@ public class NewEnemy : EnemyHitTarget
 
 
     // Update is called once per frame
-    protected void Update()
+    protected override void Update()
     {
+        
         this.transform.Rotate(rotation * 1 * Time.deltaTime);  
     }
 }
