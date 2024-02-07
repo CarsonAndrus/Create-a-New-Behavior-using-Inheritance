@@ -8,6 +8,7 @@ public class ControllerData : MonoBehaviour
     [SerializeField] InputActionReference toggleleft;
     [SerializeField] InputActionReference jumpright;
     [SerializeField] InputActionReference jumpleft;
+    [SerializeField] InputActionReference jumpkey;
     [SerializeField] float jumpForce = 50f;
     private Rigidbody rb;
 
@@ -16,6 +17,7 @@ public class ControllerData : MonoBehaviour
     {
         jumpleft.action.performed += OnJump;
         jumpright.action.performed += OnJump;
+        jumpkey.action.performed += OnJump;
     }
 
     void OnJump(InputAction.CallbackContext context)

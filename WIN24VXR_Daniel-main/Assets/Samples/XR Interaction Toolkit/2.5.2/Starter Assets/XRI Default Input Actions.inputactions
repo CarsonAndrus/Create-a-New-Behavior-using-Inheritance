@@ -1824,6 +1824,17 @@
                     "action": "Jump Right",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c92ffb34-492e-4b74-8b68-22c2d30b5475",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
